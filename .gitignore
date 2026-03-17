@@ -1,0 +1,98 @@
+# =============================================
+# Python virtual environments & caches
+# =============================================
+**/.venv/
+**/.venv*/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+pyvenv.cfg
+.python-version
+Pipfile.lock
+poetry.lock               # if you later switch to poetry
+
+# =============================================
+# IDE / editor / temporary files
+# =============================================
+.vscode/
+.idea/                    # PyCharm / IntelliJ
+*.swp
+*.swo
+*.swn
+.DS_Store                 # macOS
+Thumbs.db                 # Windows
+*.code-workspace          # VS Code workspace files (if personal)
+
+# =============================================
+# Logs, backups, temporary & debug files
+# =============================================
+**/logs/
+**/log/
+log/
+logs/
+backup/
+archive/
+*.log
+*.log.*
+*.log.txt
+*.bak
+*.bak*
+*.tmp
+*.temp
+*.swp
+notes/                    # personal scratch files (move important to docs/)
+
+# =============================================
+# Generated / large / binary files (do NOT commit)
+# =============================================
+**/dbs/                   # runtime databases
+**/data/                  # generated data folders
+models.db
+# Database / binary large files
+*.db
+*.sqlite
+*.sqlite3
+*.duckdb
+*.duckdb*
+*.acdb
+*.ac3b
+**/*.db
+**/*.acdb          # also catches them anywhere deep in subfolders
+
+# Audio/ML tooling & models
+ffmpeg/
+demucs/
+lib_v5/
+_pretrained_models/
+**/_pretrained_models/
+*.dll
+*.exe
+*.so
+*.dylib
+*.onnx
+*.pt
+*.pth
+*.safetensors
+
+# Pretrained ML models & checkpoints (very large binaries)
+_pretrained_models/
+pretrained_models/
+*.ckpt*
+*.data-*
+*.index
+*.meta
+
+# Large audio datasets/samples (if not intentional to track)
+songs/
+samples/
+*.wav
+*.flac
+*.mp3
+
+# Old AutoIt / legacy artifacts
+**/*.au3.txt              # text dumps/copies of scripts
+**/*.au3.bak
