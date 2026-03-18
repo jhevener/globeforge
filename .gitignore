@@ -1,5 +1,30 @@
 # =============================================
-# Python virtual environments & caches
+# Godot-specific ignores (from github/gitignore + community best practices 2026)
+# =============================================
+
+# Godot 4+ editor folder (local cache, workspace, etc.)
+.godot/
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+export_credentials.cfg           # contains sensitive keys/tokens
+*.import                         # ← DO commit these! (critical for assets)
+*.uid                            # ← DO commit these! (critical for assets)
+*.translation                    # auto-generated from CSV
+
+# Mono-specific ignores (if/when using C# later)
+.mono/
+data_*/
+mono_crash.*.json
+
+# Temporary files
+*.tmp
+*.import.tmp
+
+# =============================================
+# Python virtual environments & caches (your section - kept)
 # =============================================
 **/.venv/
 **/.venv*/
@@ -13,19 +38,19 @@ __pycache__/
 pyvenv.cfg
 .python-version
 Pipfile.lock
-poetry.lock               # if you later switch to poetry
+poetry.lock
 
 # =============================================
 # IDE / editor / temporary files
 # =============================================
 .vscode/
-.idea/                    # PyCharm / IntelliJ
+.idea/
 *.swp
 *.swo
 *.swn
-.DS_Store                 # macOS
-Thumbs.db                 # Windows
-*.code-workspace          # VS Code workspace files (if personal)
+.DS_Store
+Thumbs.db
+*.code-workspace
 
 # =============================================
 # Logs, backups, temporary & debug files
@@ -43,33 +68,29 @@ archive/
 *.bak*
 *.tmp
 *.temp
-*.swp
-notes/                    # personal scratch files (move important to docs/)
+notes/
 
 # =============================================
 # Generated / large / binary files (do NOT commit)
 # =============================================
-**/dbs/                   # runtime databases
-**/data/                  # generated data folders
+**/dbs/
+**/data/
 models.db
-# Database / binary large files
 *.db
 *.sqlite
 *.sqlite3
 *.duckdb
-*.duckdb*
 *.acdb
-*.ac3b
 **/*.db
-**/*.acdb          # also catches them anywhere deep in subfolders
+**/*.acdb
 
-# Audio/ML tooling & models
+# Audio/ML tooling & models (your section - good)
 ffmpeg/
 demucs/
 lib_v5/
 _pretrained_models/
 **/_pretrained_models/
-*.dll
+*.dll                # ← careful: keep Godot/py4godot DLLs if needed; ignore extras
 *.exe
 *.so
 *.dylib
@@ -77,22 +98,34 @@ _pretrained_models/
 *.pt
 *.pth
 *.safetensors
-
-# Pretrained ML models & checkpoints (very large binaries)
-_pretrained_models/
-pretrained_models/
 *.ckpt*
 *.data-*
 *.index
 *.meta
 
-# Large audio datasets/samples (if not intentional to track)
+# Large audio datasets/samples
 songs/
 samples/
 *.wav
 *.flac
 *.mp3
 
-# Old AutoIt / legacy artifacts
-**/*.au3.txt              # text dumps/copies of scripts
+# Old legacy artifacts
+**/*.au3.txt
 **/*.au3.bak
+
+# =============================================
+# Project-specific extras (add as needed)
+# =============================================
+# Ignore full py4godot archive/extract during prototype
+install_dir/
+py4godot/                # ← or add sub-paths like py4godot/cpython-* except windows64 if integrating
+**/cpython-*-darwin*     # multi-platform builds
+**/cpython-*-linux*
+**/cpython-*-arm*
+
+# Builds / exports (when you start exporting)
+builds/
+export/
+*.pck
+*.zip
