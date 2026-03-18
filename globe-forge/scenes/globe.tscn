@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://c8ipra2s71p6x"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jix7m"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_n8ds1"]
+material = SubResource("StandardMaterial3D_jix7m")
+radius = 10.0
+height = 20.0
+rings = 64
+
 [node name="Node3D" type="Node3D" unique_id=1216114314]
+
+[node name="Globe" type="MeshInstance3D" parent="." unique_id=448637239]
+mesh = SubResource("SphereMesh_n8ds1")
