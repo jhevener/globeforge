@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c8ipra2s71p6x"]
 
+[ext_resource type="Script" uid="uid://buudcye7lgj6x" path="res://scripts/OrbitCamera.gd" id="1_n8ds1"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jix7m"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_n8ds1"]
@@ -8,7 +10,32 @@ radius = 10.0
 height = 20.0
 rings = 64
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n8ds1"]
+
+[sub_resource type="Sky" id="Sky_8bvjc"]
+sky_material = SubResource("ProceduralSkyMaterial_n8ds1")
+
+[sub_resource type="Environment" id="Environment_0i7bp"]
+background_mode = 2
+sky = SubResource("Sky_8bvjc")
+ambient_light_source = 3
+ambient_light_color = Color(0.36862746, 0.5647059, 1, 1)
+
 [node name="Node3D" type="Node3D" unique_id=1216114314]
 
 [node name="Globe" type="MeshInstance3D" parent="." unique_id=448637239]
 mesh = SubResource("SphereMesh_n8ds1")
+
+[node name="Camera" type="Camera3D" parent="Globe" unique_id=319592255 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0, 20)
+current = true
+script = ExtResource("1_n8ds1")
+target = NodePath("..")
+
+[node name="Sunlight" type="DirectionalLight3D" parent="." unique_id=381148967]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=325318498]
+environment = SubResource("Environment_0i7bp")
